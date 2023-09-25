@@ -1,0 +1,38 @@
+body {
+ background-color: #fff;
+ color: #000;
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 12px;
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+.week {
+ width: 90%;
+}
+
+.week-grid {
+ display: flex;
+ flex-direction: row;
+}
+
+.day {
+ width: 100%;
+ background-color: antiquewhite;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+.hour {
+ width: 90%;
+ height: 20px;
+ background-color: bisque;
+ margin: 1px;
+ display: flex;
+ flex-direction: row;
+ justify-content: stretch;
+ align-items: center;
+}
