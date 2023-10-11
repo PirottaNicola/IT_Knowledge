@@ -50,7 +50,7 @@
 	}
 
 	.corner a {
-		display: flex;
+		display: flex; 
 		align-items: center;
 		justify-content: center;
 		width: 100%;
