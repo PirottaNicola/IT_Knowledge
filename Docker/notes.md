@@ -1,0 +1,11 @@
+Docker is a **container platform that allows you to run applications in a container**. A container is a sandboxed process running an application and its dependencies on the host operating system. The application inside the container considers itself to be the only process running on the machine, and it has no idea it’s running in a container that may contain other applications. This means you can run more than one container on a single machine, and containers are resource efficient because they don’t need the extra load of a hypervisor, but run directly within the host machine’s kernel.
+
+**To deploy a docker container you need to create a Dockerfil**e. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using docker build users can create an automated build that executes several command-line instructions in succession.
+
+To create an image from a docker container you need to run the command `docker build -t <image-name> .` in the directory where the Dockerfile is located. The `-t` flag is used to tag the image with a name. The `.` at the end of the command is the path to the directory where the Dockerfile is located.
+
+**A Docker image is a read-only template that contains a set of instructions for creating a container** that can run on the Docker platform. It provides a convenient way to package up applications and preconfigured server environments, which you can use for your own private use or share publicly with other Docker users.
+
+**You can deploy docker images to a docker registry**. A registry is a collection of repositories, and a repository is a collection of images—sort of like a GitHub repository, except the code is already built. An account on a registry can create many repositories. The docker registry is a hosted registry service on Docker Cloud. You can think of the registry as a directory of all available Docker images. You can search for images on the registry through the Docker client.
+
+**You can deploy images on online platforms such as Heroku**. To deploy a docker image to Heroku you need to create a heroku.yml file. This file contains the instructions to build the image. Then you need to create a heroku app and link it to the github repository. Then you need to deploy the app. Heroku will build the image and deploy it.
