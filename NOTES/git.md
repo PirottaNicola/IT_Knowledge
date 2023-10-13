@@ -21,6 +21,14 @@
 - open the folder in your terminal
 - run `git clone <url-of-repository>` to clone the remote repository to the local repository
 
+## Pull changes from a remote repository
+
+- run `git pull origin master` to pull the changes from the remote repository to the local repository
+- run `git pull` to pull the changes from the remote repository to the local repository
+- run `git pull --rebase origin master` to pull the changes from the remote repository to the local repository and rebase the commits
+- run `git pull --rebase` to pull the changes from the remote repository to the local repository and rebase the commits
+- run `git pull --rebase=preserve origin master` to pull the changes from the remote repository to the local repository and rebase the commits preserving the merge commits
+
 ## Create and use a branch
 
 - run `git branch <branch-name>` to create a branch
