@@ -23,3 +23,17 @@
   - Use the transform property instead of the top property
 
 A usefull to measure all this web performance metrics in all the pages of a website is Unlighthouse (https://unlighthouse.dev/), which you can use directly from ur terminal using _npx unlighthouse --site urlOfWebsite_.
+
+# Different ways to render a web page
+
+## SSR (Server Side Rendering)
+
+SSR means that the HTML is generated on the server and sent to the client. The client receives the HTML and displays it. The client then downloads the javascript and executes it. The javascript then fetches the data and updates the HTML. This is the traditional way of rendering a web page. It is good for SEO because the HTML is already generated on the server. It is also good for performance because the client receives the HTML faster. However, it is bad for user experience because the user has to wait for the javascript to be downloaded and executed before the page is interactive. It is also bad for developer experience because you have to write the same code twice, once for the server and once for the client. It is also bad for performance because the javascript bundle is usually large and takes a long time to download and execute.
+
+## CSR (Client Side Rendering)
+
+CSR means that the HTML is generated on the client. The client downloads the javascript and executes it. The javascript then fetches the data and updates the HTML. This is the modern way of rendering a web page. It is good for user experience because the page is interactive faster. It is also good for developer experience because you only have to write the code once. It is also good for performance because the javascript bundle is usually smaller and takes less time to download and execute. However, it is bad for SEO because the HTML is not generated on the server. It is also bad for performance because the client receives the HTML slower.
+
+## SSG (Static Site Generation)
+
+SSG means that the HTML is generated at build time. The HTML is then served to the client. The client receives the HTML and displays it. The client then downloads the javascript and executes it (Hydration). The javascript then fetches the data and updates the HTML. It is good for SEO because the HTML is already generated at build time. It is also good for performance because the client receives the HTML faster. However, it is bad for user experience because the page is not interactive until the javascript is downloaded and executed. It is also bad for developer experience because you have to rebuild the site every time you make a change.

@@ -9,6 +9,14 @@
 </head>
 
 <body>
+ <!-- new (fully supported) DIALOG tag-->
+ <dialog id="d">
+  <form method="dialog">
+   <h3>form using dialog</h3>
+   <button onclick="d.close()">close</button>
+  </form>
+ </dialog>
+ <button onclick="d.showModal()">open dialog</button>
 </body>
 
 </html>
