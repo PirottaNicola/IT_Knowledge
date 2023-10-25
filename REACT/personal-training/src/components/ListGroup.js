@@ -1,14 +1,21 @@
 function ListGroup() {
-    return <>
-        <h1>List</h1>
-        <ul class="list-group">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A fourth item</li>
-            <li class="list-group-item">And a fifth one</li>
-        </ul>
-    </>
+    const items = [
+        'An item',
+        'A second item',
+        'A third item',
+        'A fourth item',
+        'And a fifth one',
+    ]
+    return (
+        <>
+            <h1>List</h1>
+            <ul className='list-group'>
+                {items.length < 1 ? <p>Nothing in the list</p> : items.map((item) => (
+                    <li key={item} className='list-group-item'>{item}</li> // key is a unique identifier for each item, in this case we use the item itself cause we know it's unique, but we can use an id if we have one
+                ))}
+            </ul>
+        </>
+    )
 }
 
-export default ListGroup;
+export default ListGroup
