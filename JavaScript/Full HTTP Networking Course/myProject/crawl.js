@@ -47,7 +47,7 @@ async function crawlPage(baseURL, currentURL, pages) {
 
 function getURLsFromHTML(htmlBody, baseURL) {
     const urls = []
-    const dom = new JSDOM(htmlBody)
+    const dom = new JSDOM(htmlBody) // we create a DOM object from the HTML body of the page, so that we can use the DOM API to query the DOM (we use the JSDOM library to create the DOM object cause we're running our script in Node.js, not in a browser)
     const linkElements = dom.window.document.querySelectorAll('a')
     for (const linkElement of linkElements) {
 
