@@ -1,0 +1,31 @@
+.griglia {
+    display: grid;
+    /* minmax(300px) = minimo 300px, massimo 1fr, cioè tutto lo spazio disponibile */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.griglia img {
+    width: 100%;
+}
+
+.with-sidebar {
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
+
+.sidebar {
+    display: block;
+    background-color: #f4f4f4;
+    padding: 20px;
+
+}
+
+/* when the page is wide enough, sidebar on the left size */
+@media (min-width: 800px) {
+    .with-sidebar {
+        grid-template-columns: 1fr 3fr;
+        gap: 30px;
+    }
+}
