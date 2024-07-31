@@ -4,13 +4,37 @@ interface Person {
   name: string // required
   age: number // required
   [key: string]: any // add more properties if needed
-}
+} 
 
 let person: Person = {
   name: 'Jack',
   age: 32,
   job: 'Developer', // add more properties
 }
+
+// * Types
+
+type Point = {
+  x: number
+  y: number
+}
+
+let point: Point = {
+  x: 10,
+  y: 20,
+}
+
+// different from interface
+// - can't be extended or implemented
+// - can be used with primitive types, union types, tuple, etc.
+
+
+// * union types
+
+let union: string | number = 'string' // can be string or number
+union = 'string'
+union = 1
+
 
 // * arrays
 
