@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="AlterVista - Editor HTML"/>
+  <title></title>
+</head>
+
+<script language="javascript">
+var fsomma=function (v1, v2)
+{
+   var r = v1 + v2;
+   var testo = "" + v1 + "+" + v2 + "=" + r;
+   return testo;   
+}
+
+var fdifferenza=function (v1, v2)
+{
+   var r = v1 - v2;
+   var testo = "" + v1 + "-" + v2 + "=" + r;
+   return testo;   
+}
+
+var fprodotto=function (v1, v2)
+{
+   var r = v1 * v2;
+   var testo = "" + v1 + "*" + v2 + "=" + r;
+   return testo;   
+}
+
+var fdivisione=function (v1, v2)
+{
+   var r = v1 / v2;
+   var testo = "" + v1 + "/" + v2 + "=";
+   if (v2 != 0){
+   	r = v1 / v2;
+    testo += r;
+    } else {
+    	testo += " impossibile";
+        }
+   return testo;   
+ 
+}
+
+function Calcola(operazione) {
+	var v1=parseInt(document.forms.myForm.op1.value);
+	var v2=parseInt(document.forms.myForm.op2.value);
+	if (isNaN(v1))
+    	v1 = 0;
+    if (isNaN(v2))
+    	v2 = 0;
+
+    var testo = operazione(v1, v2);
+
+   var nodo = document.getElementById("risultato");
+   nodo.innerHTML = "<p>" + testo + "</p>";
+
+}
+
+</script>
+
+<body>
+	
+    <form name="myForm" onSubmit="return false;">
+     <input type="text" name="op1"/>
+     <input type="text" name="op2"/>
+    <input type="submit" value="+" onClick="Calcola(fsomma);"/>
+    <input type="submit" value="-" onClick="Calcola(fdifferenza);"/>
+    <input type="submit" value="*" onClick="Calcola(fprodotto);"/>
+    <input type="submit" value="/" onClick="Calcola(fdivisione);"/>
+    </form>
+    
+    <div id="risultato">
+Qui il risultato
+    </div>
+
+</body>
+</html>

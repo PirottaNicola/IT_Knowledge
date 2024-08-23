@@ -1,0 +1,6 @@
+{
+    "events": [
+        { "location": "san francisco, CA", "date": "may 1", "map": "../00files/1216348.jpg" },
+        { "location": "austin ,TX", "date": "may 15", "map": "img/map-tx.png" }
+    ]
+}

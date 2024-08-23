@@ -1,0 +1,82 @@
+UI EVENTS
+------------------------------------------------------------------------------------
+load : the web page finisched loading
+unload : web page in unloading (usually because a new web page has been requested)
+error : browser encounters a JS error or an asset doesn't exists
+resize : browser window has been resized
+scroll : user has scroleed up ord down the page
+
+
+
+KEYBOARD EVENTS
+------------------------------------------------------------------------------------
+keydown : user presses a key (repeats while key is pressed)
+keyup : user releases a key
+keypress : character is being inserted (repeats while key is depressed)
+
+
+
+MOUSE EVENTS 
+------------------------------------------------------------------------------------
+click
+dbclick
+musedown : user presses a mouse button while over an element
+mouseup : user releases a mouse button while over an element
+mousemove : mouse moves (not on a touchscreen)
+mouseover : user moves the mouse over an element (not on a touchscreen)
+mouseout : user moves the mouse off an element (not on a touchscreen)
+
+
+
+FOCUS EVENTS
+-------------------------------------------------------------------------------------
+focus / focusin : element gain focus
+blur / focusout : element loses focus 
+
+
+
+FORM EVENTS
+-------------------------------------------------------------------------------------
+input : value in any <input> or <textarea> element has changed or any element eith the contenteditable attribute
+change : value in selectbox, checkbox, radio button changes
+submit : user submits a form using a button or a key
+reset : user clicks on a form's reset button
+cut : user cuts content from a form field
+copy 
+paste
+select : user selects text in a form field
+
+
+
+MUTATION EVENTS (occue when DOM structure has been changed by a script. Will be replaced by Mutation observers!)
+-------------------------------------------------------------------------------------
+DOMSubtreeModified : change has been made to the document
+DOMNodeInserted
+DOMNodeRemoved
+DOMNodeInseredIntoDocument : Node inserted as descendent of another Node
+DOMNodeRemovedFromDocument
+
+
+
+E V E N T    L I S T E N E R S
+!!! quando si chiama la funzione in un event listener, se si mettono le parentesi per passare un parametro, 
+essa viene eseguita non appena la pagina viene caricata! per evitare ciò si mette la funzione in una 
+funzione generica che fa da wrapper !!!
+
+ex:        el.addEventListener('blur', function(){
+               checkUsername(5);
+            }, false);
+
+
+
+E V E N T    O B J E C T 
+when an event occurs, the event object tells you infomration about it and the element it happened upon
+PROPERTIES:
+target : the target of the evenet (the most specific element interacted with)
+type : type of event that was fired
+cancelable : whther can cancel the default behavior of an element
+METHODS
+preventDefault() : cancel defualt behavior og the event (if it can be canceled)
+stopPropagation() : stops the event from bubbling or capturing any furhter
+EVENT DELEGATION --> placing event handlers on a containing element  and then use the event object's target
+                     property to find which of its children the event happened on. USEFUL TO SPEED UP THE PAGE!!!

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //let e const definiscono variabili valide solo nel block scope (nel blocco definito dalle graffe) 
+        //const indica dei valori (quasi) immutabili
+        let name = "alberto";
+
+        function myFun(isTrue) {
+            if (isTrue) {
+                const name = 'marta';
+                return name;
+            }
+            return name;
+        }
+        console.log(myFun(false));
+    </script>
+</body>
+
+</html>

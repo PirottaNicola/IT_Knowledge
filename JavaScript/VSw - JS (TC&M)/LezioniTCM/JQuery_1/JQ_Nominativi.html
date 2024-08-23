@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="AlterVista - Editor HTML" />
+    <title></title>
+</head>
+
+<script type="text/javascript" src="jquery-2.0.0.js"></script>
+<script type="text/javascript">
+    var selectors = { //oggetto che raccoglie tutti i selettori per non doverli scrivere ogni volta
+        area: "#area_risultato",
+        pulsante_invio: "#id_invio",
+        cognome: "#id_cognome",
+        nome: "#id_nome"
+    };
+
+    function MostraLista(lista) {
+        var area = $(selectors.area);
+        area.html("<p>Trovati " + lista.list.length + " Nominativi</p>");
+
+        var i;
+        for (i = 0; i < lista.list.length; i++) {
+            $("<div>" + lista.list[i].cognome + " " + lista.list[i].nome +
+                "</div>").appendTo(selectors.area);
+        }
+    }
+
+    function MostraErrore(errorThrown) {
+        var area = $(selectors.area);
+        area.html("<p>Spiacenti, errore rilevato: " + errorThrown + "</p>");
+    }
+
+    var success = function(data, textStatus, jqXHR) {
+        MostraLista(data);
+    };
+
+    var failure = function(jqXHR, textStatus, errorThrown) {
+        MostraErrore(errorThrown);
+    };
+
+    function AppendToQuery(old_query, name, val) {
+        var query;
+        if (old_query.length == 0)
+            query = "?";
+        else
+            query = old_query + "&";
+
+        query += name + "=" + val;
+
+        return query;
+    }
+
+    var eventHandler = function(event) {
+        event.preventDefault();
+        var cg = $(selectors.cognome).val();
+        var no = $(selectors.nome).val();
+
+        var query = "";
+        if (cg.length > 0)
+            query = AppendToQuery(query, "cg", cg);
+        if (no.length > 0)
+            query = AppendToQuery(query, "no", no);
+
+        var ajaxConf = {
+            url: "./Nominativi.php" + query,
+            type: "GET",
+            dataType: "json"
+        };
+
+        $.ajax(ajaxConf).done(success).fail(failure);
+
+    };
+
+    var finit = function() {
+        $(selectors.pulsante_invio).bind("click", eventHandler);
+    }
+
+    $(finit);
+</script>
+
+<body>
+
+    <form name="myform">
+        Cognome <input type="text" id="id_cognome" /> <br/> e/o Nome <input type="text" id="id_nome" />
+        <input type="submit" value="Cerca" id="id_invio" />
+    </form>
+
+    <div id="area_risultato"></div>
+
+</body>
+
+</html>

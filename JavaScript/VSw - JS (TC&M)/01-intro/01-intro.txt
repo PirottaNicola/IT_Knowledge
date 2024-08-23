@@ -1,0 +1,15 @@
+JS può essere integrato direttamente nel codice html con il tag <script>funzione javascript</script>
+Anche se è sicuramente averlo in un file a parte e richiamarlo  con <script src="file.js"></script>.
+
+le funzioni JS non modificano il codice html ma direttamente il modello della pagina creato dal browser (sulla base dell'html).
+JS modifica la porzione di pagina nella quale è inserito all'interno dell'html.
+
+
+JS riconosce tre tipi di dato: numero, stringa, boolean.
+le stringhe devono essere scritte tra apici o virgolette e per forza su una sola riga.
+
+E' possibile creare una variabile array. Non è necessario indicarne la grandezza, si adattano: 
+var colors;
+colors=['white','brown'];
+
+

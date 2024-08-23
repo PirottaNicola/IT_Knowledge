@@ -1,0 +1,17 @@
+#titolo {
+    color: brown;
+}
+
+#sub1 {
+    color: #ee3e80;
+}
+
+#sub2 {
+    background-color: #ee3e80;
+}
+
+#sub3 {
+    color: rgb(255, 2, 2);
+    background-color: blue;
+    opacity: 0.2;
+}

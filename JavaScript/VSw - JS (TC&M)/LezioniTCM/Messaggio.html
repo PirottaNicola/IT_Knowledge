@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="generator" content="AlterVista - Editor HTML" />
+
+    <title></title>
+
+</head>
+
+​
+
+<script language="javascript">
+    function gen_messaggio(message) {
+
+        var format = message.toUpperCase()
+
+        var size = 1 //go through the message, letter by letter 
+
+        var risultato = "";
+
+        for (i = 0; i < message.length; i++) {
+
+            var m = format.charAt(i).fontsize(size).bold();
+
+            risultato += m;
+
+            if (size < 7)
+
+                size++;
+
+            else
+
+                size = 1;
+
+        }
+
+        return risultato;
+
+    }
+
+    //gen_messaggio("Benvenuti");
+
+    ​
+
+    function formatta() {
+
+        var msg = document.forms.myform.testo.value;
+
+        var nodo = document.getElementById("area_risultato");
+
+        nodo.innerHTML = gen_messaggio(msg);
+
+        return false;
+
+    }
+</script>
+
+​
+
+<body>
+
+    <form name="myform" onSubmit="return formatta();">
+
+        <input name="testo" type="text" />
+
+        <input type="submit" value="Formatta" />
+
+    </form>
+
+    <div id="area_risultato">
+
+        Qui il risultato
+
+    </div>
+
+    ​
+
+</body>
+
+</html>
+
+​

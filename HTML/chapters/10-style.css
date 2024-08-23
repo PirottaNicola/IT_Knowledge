@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(185, 179, 175);
+}
+
+@font-face {
+    font-family: Dragonfire;
+    src: url(10-Dragonfire.woff);
+}
+
+#titolo {
+    font-family: Dragonfire;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    background-color: brown;
+}

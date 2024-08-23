@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="AlterVista - Editor HTML" />
+    <title></title>
+</head>
+
+<script type="text/javascript" src="jquery-2.0.0.js"></script>
+
+
+<script language="javascript">
+    function gen_messaggio(message) {
+        var format = message.toUpperCase()
+        var size = 1 //go through the message, letter by letter 
+        var risultato = "";
+        for (i = 0; i < message.length; i++) {
+            var m = format.charAt(i).fontsize(size).bold();
+            risultato += m;
+            if (size < 7)
+                size++;
+            else
+                size = 1;
+        }
+        return risultato;
+    }
+    //gen_messaggio("Benvenuti");
+
+    function formatta(event) {
+        var msg = $("#idtesto").eq(0).val();
+        $("#area_risultato").eq(0).html(gen_messaggio(msg));
+        event.preventDefault(); //ferma la gestione dell'evento a posteriori
+    }
+
+    var finit = function() {
+        ///set the event handler
+        $("#idpulsante").bind("click", formatta);
+    };
+    $(finit); //in questo modo appena il DOM sarà caricato, verrà eseguita finit, che inizializza l'event handler
+</script>
+
+<body>
+    <form name="myform">
+        <input name="testo" type="text" id="idtesto" />
+        <input type="submit" value="Formatta" id="idpulsante" />
+    </form>
+    <div id="area_risultato">
+        Qui il risultato
+    </div>
+
+</body>
+
+</html>

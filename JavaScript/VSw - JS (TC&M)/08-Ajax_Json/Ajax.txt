@@ -1,0 +1,14 @@
+Ajax works in an asycnhronous (non-blocking) processig model.
+to create an Ajax request, browsers use the XMLHttpRequest object.
+
+the server can respondo sending XML, HTML o JSON files.
+to load JSON froma a different domain you can use JSONP
+but onlu if the code is from a trusted source.
+
+JQuery has methods that make it easier to use Ajax.
+.load() is the simplest way to load html into a page.
+.ajax() is more powerful and complex
+
+When a JSON is sent from a server to a browser, is transmitted as
+a string (JSON.stringify). When the browser receives it, it has to 
+convert it into an object (JSON.parse).
