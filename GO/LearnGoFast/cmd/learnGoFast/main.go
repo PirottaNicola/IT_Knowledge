@@ -1,0 +1,5 @@
+package learngofast
+
+func main() {
+
+}

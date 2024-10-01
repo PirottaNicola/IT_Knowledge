@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-ArtifactIdApplication<artifact_id>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "main.artifact_id.ArtifactIdApplication",
+      "projectName": "artifact_id",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
