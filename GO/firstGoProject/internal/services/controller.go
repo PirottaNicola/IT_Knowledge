@@ -40,7 +40,7 @@ func StartServer() {
 
 }
 
-// register handles user registration requests. It expects a POST request with
+// * register handles user registration requests. It expects a POST request with
 // "username" and "password" form values. The function performs the following steps:
 // 1. Checks if the request method is POST. If not, it responds with a 405 Method Not Allowed status.
 // 2. Retrieves the "username" and "password" from the request form values.
@@ -92,6 +92,19 @@ func register(w http.ResponseWriter, r *http.Request) {
 
 }
 
+// * login handles user login requests. It expects a POST request with "username" and "password" form values.
+// The function performs the following steps:
+// 1. Checks if the request method is POST. If not, it responds with a 405 Method Not Allowed status.
+// 2. Retrieves the "username" and "password" from the request form values.
+// 3. Checks if the user exists in the users map. If not, it responds with a 401 Unauthorized status.
+// 4. Checks if the password is correct. If not, it responds with a 401 Unauthorized status.
+// 5. Generates a session token using the utils.GenerateToken function.
+// 6. Sets the session token for the user in the users map.
+// 7. Sets a session cookie with the session token.
+// 8. Generates a CSRF token using the utils.GenerateToken function.
+// 9. Sets the CSRF token for the user in the users map.
+// 10. Sets a CSRF token cookie with the CSRF token.
+// 11. Responds with a success message.
 func login(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method != http.MethodPost {
@@ -155,7 +168,11 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 }
 
-// this endpoint requires the user to be authenticated (logged in, with a valid session token and CSRF token --> checked using the Authorize function from session.go)
+// * protected handles protected endpoint requests. It expects a POST request with a valid session token in the "session_token" cookie.
+// The function performs the following steps:
+// 1. Checks if the request method is POST. If not, it responds with a 405 Method Not Allowed status.
+// 2. Checks if the user is authorized using the Authorize function. If not, it responds with a 401 Unauthorized status.
+// 3. Sends a success response with a welcome message.
 func protected(w http.ResponseWriter, r *http.Request) {
 	// Check if the request method is POST
 	if r.Method != http.MethodPost {
